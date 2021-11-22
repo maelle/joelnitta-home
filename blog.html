@@ -2320,6 +2320,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     color: #fff;
     background-color: #696969;
     padding: 5px 5px 5px 18px;
+    overflow: auto !important;
   }
   
   d-article div.sourceCode pre { /* Chunk code */
@@ -2498,6 +2499,34 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <script>
+     document.addEventListener("DOMContentLoaded", function () {
+       if (!/posts/.test(location.pathname)) {
+         return;
+       }
+  
+       var script = document.createElement("script");
+       script.src = "https://utteranc.es/client.js";
+       script.setAttribute("repo", "joelnitta/joelnitta-home");
+       script.setAttribute("issue-term", "title");
+       script.setAttribute("crossorigin", "anonymous");
+       script.setAttribute("label", "comments 💬");
+       script.setAttribute("theme", "github-light");
+  
+       /* wait for article to load, append script to article element */
+       var observer = new MutationObserver(function (mutations, observer) {
+         var article = document.querySelector("d-article");
+         if (article) {
+           observer.disconnect();
+           /* HACK: article scroll */
+           article.setAttribute("style", "overflow-y: hidden");
+           article.appendChild(script);
+         }
+       });
+  
+       observer.observe(document.body, { childList: true });
+     });
+   </script>
   <!--/radix_placeholder_site_in_header-->
 
 
@@ -2683,7 +2712,7 @@ function init_posts_list() {
 <div class="description">
 <h2>Managing bioinformatics pipelines with R</h2>
 <div class="dt-tags"></div>
-<p>How to run a complete bioinformatics pipeline from the comfort of R</p>
+<p>How to combine Conda, Docker, and R to run modular, reproducible bioinformatics pipelines</p>
 </div>
 </a>
 <a href="posts/2021-06-02_color-scheme-anc-states/" class="post-preview">
