@@ -7,7 +7,26 @@
     <description>Joel Nitta
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 24 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>#fernfriday 2021</title>
+      <dc:creator>Joel Nitta</dc:creator>
+      <link>https://joelnitta.com/posts/2022-01-24_friday-ferns-2021</link>
+      <description>In which I answer the burning question on everybody's minds: what was
+the most popular fern of 2021??</description>
+      <guid>https://joelnitta.com/posts/2022-01-24_friday-ferns-2021</guid>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://joelnitta.com/posts/2022-01-24_friday-ferns-2021/img/new-zealand-fantail-3729278_960_720.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
+      <title>Managing bioinformatics pipelines with R (Part 2)</title>
+      <dc:creator>Joel Nitta</dc:creator>
+      <link>https://joelnitta.com/posts/2022-01-13_r-bioinfo-pt2</link>
+      <description>An update on managing bioinformatics pipelines with R, mainly to highlight a nifty new function that allows you to (more) easily run Docker containers.</description>
+      <guid>https://joelnitta.com/posts/2022-01-13_r-bioinfo-pt2</guid>
+      <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://joelnitta.com/posts/2022-01-13_r-bioinfo-pt2/img/bart-van-meele-ns4bIZ6XeGY-unsplash.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>Enable giscus in Distill</title>
       <dc:creator>Joel Nitta</dc:creator>
