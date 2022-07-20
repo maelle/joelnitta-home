@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.533">
+<meta name="generator" content="quarto-1.0.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,8 +36,8 @@ ul.task-list{list-style: none;}
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,6 +79,12 @@ ul.task-list{list-style: none;}
       window['quarto-listing-loaded']();
     }
   });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
@@ -161,7 +167,7 @@ ul.task-list{list-style: none;}
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="blogging,distill" data-listing-date-sort="1637712000000" data-listing-file-modified-sort="1654587972428" data-listing-reading-time-sort="4.715">
+<div class="quarto-post image-right" data-index="0" data-categories="blogging,distill" data-listing-date-sort="1637712000000" data-listing-file-modified-sort="1658281442313" data-listing-reading-time-sort="4.715">
 <div class="thumbnail">
 <p><a href="./posts/2021-11-24_using-giscus/index.html"> <img src="./posts/2021-11-24_using-giscus/img/adam-solomon-WHUDOzd5IYU-unsplash.jpg" class="thumnail-image"> </a></p>
 </div>
@@ -193,10 +199,13 @@ distill
 <div class="listing-date">
 Nov 24, 2021
 </div>
+<div class="listing-author">
+Joel Nitta
+</div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="workflow,reproducibility" data-listing-date-sort="1637020800000" data-listing-file-modified-sort="1654587972408" data-listing-reading-time-sort="11.235">
+<div class="quarto-post image-right" data-index="1" data-categories="workflow,reproducibility" data-listing-date-sort="1637020800000" data-listing-file-modified-sort="1658281442297" data-listing-reading-time-sort="11.235">
 <div class="thumbnail">
 <p><a href="./posts/2021-11-16_r-bioinfo-flow/index.html"> <img src="./posts/2021-11-16_r-bioinfo-flow/img/t-k-9AxFJaNySB8-unsplash.jpg" class="thumnail-image"> </a></p>
 </div>
@@ -228,10 +237,13 @@ reproducibility
 <div class="listing-date">
 Nov 16, 2021
 </div>
+<div class="listing-author">
+Joel Nitta
+</div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="r,plotting" data-listing-date-sort="1622592000000" data-listing-file-modified-sort="1654587972340" data-listing-reading-time-sort="3.855">
+<div class="quarto-post image-right" data-index="2" data-categories="r,plotting" data-listing-date-sort="1622592000000" data-listing-file-modified-sort="1658281442233" data-listing-reading-time-sort="3.855">
 <div class="thumbnail">
 <p><a href="./posts/2021-06-02_color-scheme-anc-states/index.html"> <img src="./posts/2021-06-02_color-scheme-anc-states/featured.png" class="thumnail-image"> </a></p>
 </div>
@@ -263,10 +275,13 @@ plotting
 <div class="listing-date">
 Jun 2, 2021
 </div>
+<div class="listing-author">
+Joel Nitta
+</div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="docker" data-listing-date-sort="1550275200000" data-listing-file-modified-sort="1654587972332" data-listing-reading-time-sort="2.995">
+<div class="quarto-post image-right" data-index="3" data-categories="docker" data-listing-date-sort="1550275200000" data-listing-file-modified-sort="1658281442225" data-listing-reading-time-sort="2.995">
 <div class="thumbnail">
 <p><a href="./posts/2019-02-16_building-r-docker-images-with-secrets/index.html"> <img src="./posts/2019-02-16_building-r-docker-images-with-secrets/featured.png" class="thumnail-image"> </a></p>
 </div>
@@ -295,6 +310,9 @@ docker
 <div class="listing-date">
 Feb 16, 2019
 </div>
+<div class="listing-author">
+Joel Nitta
+</div>
 </a>
 </div>
 </div>
@@ -305,6 +323,24 @@ No matching items
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const disableStylesheet = (stylesheets) => {
     for (let i=0; i < stylesheets.length; i++) {
       const stylesheet = stylesheets[i];
@@ -334,8 +370,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     manageTransitions('#quarto-margin-sidebar .nav-link', false);
     if (alternate) {
       enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
     } else {
       disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
     }
     manageTransitions('#quarto-margin-sidebar .nav-link', true);
     // Switch the toggles
