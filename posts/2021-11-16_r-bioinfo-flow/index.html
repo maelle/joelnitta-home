@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.32">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -14,10 +14,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -56,7 +61,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -69,7 +74,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -138,9 +143,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Joel Nitta</span>
-  </a>
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -222,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
@@ -269,7 +276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="fig-image-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/t-k-9AxFJaNySB8-unsplash.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure 1: Image by <a href="https://unsplash.com/@realaxer">T K</a> on <a href="https://unsplash.com/photos/9AxFJaNySB8">unsplash</a>.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Image by <a href="https://unsplash.com/@realaxer">T K</a> on <a href="https://unsplash.com/photos/9AxFJaNySB8">unsplash</a>.</figcaption><p></p>
 </figure>
 </div>
 <p>Bioinformatics projects tend to have a similar pattern: they all start with raw data, then pass the data through various programs until arriving at the final result. These “pipelines” can become very long and complicated, so there are many platforms that automate this process either relying on code (e.g., <a href="https://www.nextflow.io/">nextflow</a>, <a href="https://www.commonwl.org/">CWL</a>) or graphical interfaces (e.g., <a href="https://galaxyproject.org/">galaxy</a>). Python’s <a href="https://snakemake.readthedocs.io/en/stable/">snakemake</a> is also commonly used for this purpose. That got me thinking—can we do this in R?</p>
@@ -298,7 +305,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="fig-image-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/giordano-rossoni-czu8X_gfpP0-unsplash.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure 2: Image by <a href="https://unsplash.com/@reddgio">Giordano Rossoni</a> on <a href="https://unsplash.com/photos/czu8X_gfpP0">unsplash</a>.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: Image by <a href="https://unsplash.com/@reddgio">Giordano Rossoni</a> on <a href="https://unsplash.com/photos/czu8X_gfpP0">unsplash</a>.</figcaption><p></p>
 </figure>
 </div>
 <p>However, I then encounter a problem: what about the environment to run R, <code>targets</code>, and launch the Docker containers? That environment should be version-controlled and reproducible too. Normally my solution to create such an environment <strong>is</strong> Docker, but it’s generally a bad idea to try and run <a href="https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/">docker from within docker</a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
@@ -508,7 +515,7 @@ downloaded 3343 bytes
 <div id="fig-image-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/john-towner-3Kv48NS4WUU-unsplash.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure 3: Image by <a href="https://unsplash.com/@heytowner">JOHN TOWNER</a> on <a href="https://unsplash.com/photos/3Kv48NS4WUU">unsplash</a></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3: Image by <a href="https://unsplash.com/@heytowner">JOHN TOWNER</a> on <a href="https://unsplash.com/photos/3Kv48NS4WUU">unsplash</a></figcaption><p></p>
 </figure>
 </div>
 <p>The example workflow just consists of a couple of steps, but I hope you can see how they are chained together: <code>fastp_out</code> depends on <code>read_1</code> and <code>read_2</code>. We could add a third step that uses <code>fastp_out</code> for something else, and so forth.</p>
@@ -557,20 +564,21 @@ downloaded 3343 bytes
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1" role="doc-endnote"><p><a href="https://docs.docker.com/get-started/overview/">Docker images</a> are basically completely self-contained computing environments, such that the software inside the image is exactly the same no matter where it is run. A major benefit of using a docker image is that you don’t have to install all of the various dependencies for a particular package: it all comes bundled in the image. And if the image has been tagged (versioned) correctly, you can specify the exact software version and know that the results won’t change in the future.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p><a href="https://bioconda.github.io/">Bioconda</a> creates a Docker image for each package, which is listed in <a href="https://biocontainers.pro/">Biocontainers</a> and uploaded to <a href="https://quay.io/organization/biocontainers">Quay.io</a>, so Bioconda and Biocontainers are largely overlapping. I find the Bioconda interface easier to use for finding images. You can also just try googling the name of the software you want to use plus “docker”. If there is no available image, <a href="https://carpentries-incubator.github.io/docker-introduction/05-creating-container-images/index.html">you can build one yourself</a>, but that’s outside the scope of this post.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>Think <em>Inception</em>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4" role="doc-endnote"><p>Conda was originally developed for managing python and python packages, but it has expanded greatly and works as a general software package manager.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5" role="doc-endnote"><p>The asterisk in <code>r-renv=0.14.*</code> indicates to install the most recent version with the <code>0.14</code> version number.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6" role="doc-endnote"><p>I’m not actually running this command and showing the output, since this post is already rendered using <code>renv</code>, and running <code>renv</code> within <code>renv</code> is also getting too <em>Inception</em>-y!<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7" role="doc-endnote"><p>I typically use Docker, but Singularity may be a good option if you want to run your workflow on a machine where you don’t have root privileges (such as on a cluster). Docker requires root privileges to install, but Singularity doesn’t (for that matter neither does Conda). I have not tested any of this with Singularity.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8" role="doc-endnote"><p>I won’t go into the details of the <code>targets</code> syntax here, but I highly recommend <a href="https://books.ropensci.org/targets/files.html">this chapter in the <code>targets</code> manual</a> for working with external files, which are very common in bioinformatics workflows.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p><a href="https://docs.docker.com/get-started/overview/">Docker images</a> are basically completely self-contained computing environments, such that the software inside the image is exactly the same no matter where it is run. A major benefit of using a docker image is that you don’t have to install all of the various dependencies for a particular package: it all comes bundled in the image. And if the image has been tagged (versioned) correctly, you can specify the exact software version and know that the results won’t change in the future.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://bioconda.github.io/">Bioconda</a> creates a Docker image for each package, which is listed in <a href="https://biocontainers.pro/">Biocontainers</a> and uploaded to <a href="https://quay.io/organization/biocontainers">Quay.io</a>, so Bioconda and Biocontainers are largely overlapping. I find the Bioconda interface easier to use for finding images. You can also just try googling the name of the software you want to use plus “docker”. If there is no available image, <a href="https://carpentries-incubator.github.io/docker-introduction/05-creating-container-images/index.html">you can build one yourself</a>, but that’s outside the scope of this post.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Think <em>Inception</em>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Conda was originally developed for managing python and python packages, but it has expanded greatly and works as a general software package manager.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>The asterisk in <code>r-renv=0.14.*</code> indicates to install the most recent version with the <code>0.14</code> version number.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>I’m not actually running this command and showing the output, since this post is already rendered using <code>renv</code>, and running <code>renv</code> within <code>renv</code> is also getting too <em>Inception</em>-y!<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>I typically use Docker, but Singularity may be a good option if you want to run your workflow on a machine where you don’t have root privileges (such as on a cluster). Docker requires root privileges to install, but Singularity doesn’t (for that matter neither does Conda). I have not tested any of this with Singularity.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>I won’t go into the details of the <code>targets</code> syntax here, but I highly recommend <a href="https://books.ropensci.org/targets/files.html">this chapter in the <code>targets</code> manual</a> for working with external files, which are very common in bioinformatics workflows.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{nitta2021,
   author = {Joel Nitta},
+  editor = {},
   title = {Managing Bioinformatics Pipelines with {R}},
   date = {2021-11-16},
   url = {https://www.joelnitta.com/posts/2021-11-16_r-bioinfo-flow/},
@@ -650,6 +658,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           toggle.classList.remove("alternate");
         }
       }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
     }
   }
   const isFileUrl = () => { 
@@ -752,7 +770,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
