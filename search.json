@@ -4,14 +4,21 @@
     "href": "software.html",
     "title": "Software",
     "section": "",
-    "text": "R package for categorial analysis of neo-and paleo-endemism.\n Code  Website  Zenodo"
+    "text": "R package for categorial analysis of neo-and paleo-endemism.\n Code  Website"
   },
   {
     "objectID": "software.html#taxastand",
     "href": "software.html#taxastand",
     "title": "Software",
-    "section": "taxastand",
-    "text": "taxastand\nR package for taxonomic name resolution.\n Code  Website"
+    "section": "taxastand ",
+    "text": "taxastand \nR package for taxonomic name resolution.\n Code  Website"
+  },
+  {
+    "objectID": "software.html#dwctaxon",
+    "href": "software.html#dwctaxon",
+    "title": "Software",
+    "section": "dwctaxon ",
+    "text": "dwctaxon \nR package for handling taxonomic data in Darwin Core format.\n Code  Website"
   },
   {
     "objectID": "index.html",
