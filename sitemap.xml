@@ -1,39 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/joelnitta/joelnitta-home/posts/2021-06-02_color-scheme-anc-states/index.html</loc>
-    <lastmod>2022-11-22T07:39:27.509Z</lastmod>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks/2022-07-24_botany_taxastand.html</loc>
+    <lastmod>2023-02-13T03:43:37.560Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/joelnitta/joelnitta-home/posts/2021-11-16_r-bioinfo-flow/index.html</loc>
-    <lastmod>2022-11-22T07:39:29.177Z</lastmod>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks/2022-09-27_biodigi.html</loc>
+    <lastmod>2023-02-13T03:43:39.873Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/joelnitta/joelnitta-home/posts/2021-11-24_using-giscus/index.html</loc>
-    <lastmod>2022-11-22T07:39:30.273Z</lastmod>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks/2022-06-30_iscbacad.html</loc>
+    <lastmod>2023-02-13T03:43:40.237Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/joelnitta/joelnitta-home/posts/2019-02-16_building-r-docker-images-with-secrets/index.html</loc>
-    <lastmod>2022-11-22T07:39:31.069Z</lastmod>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks/2023-01-21_yurufuwa.html</loc>
+    <lastmod>2023-02-13T03:43:40.621Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/joelnitta/joelnitta-home/posts/2022-10-07_canaper/index.html</loc>
-    <lastmod>2022-11-22T07:39:31.969Z</lastmod>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks/2020-07-27_botany.html</loc>
+    <lastmod>2023-02-13T03:43:40.981Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks/2021-07-19_botany.html</loc>
+    <lastmod>2023-02-13T03:43:41.325Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks/2022-05-07_biocasia.html</loc>
+    <lastmod>2023-02-13T03:43:41.681Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks/2022-03-17_india.html</loc>
+    <lastmod>2023-02-13T03:43:42.037Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks/2022-01-12_biohack.html</loc>
+    <lastmod>2023-02-13T03:43:42.389Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks/2023-01-01_ropensci.html</loc>
+    <lastmod>2023-02-13T03:43:42.777Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks/2022-07-13_ismb.html</loc>
+    <lastmod>2023-02-13T03:43:43.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks/2022-08-10_carptrans.html</loc>
+    <lastmod>2023-02-13T03:43:43.481Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks/2022-07-24_botany_ftol.html</loc>
+    <lastmod>2023-02-13T03:43:43.837Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/joelnitta/joelnitta-home/index.html</loc>
-    <lastmod>2022-11-22T07:39:33.241Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/joelnitta/joelnitta-home/blog.html</loc>
-    <lastmod>2022-11-22T07:39:33.709Z</lastmod>
+    <lastmod>2023-02-13T03:43:45.489Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/joelnitta/joelnitta-home/software.html</loc>
-    <lastmod>2022-11-22T07:39:34.881Z</lastmod>
+    <lastmod>2023-02-13T03:43:46.925Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/joelnitta/joelnitta-home/publications.html</loc>
-    <lastmod>2022-11-22T07:39:59.993Z</lastmod>
+    <lastmod>2023-02-13T03:44:09.906Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/blog.html</loc>
+    <lastmod>2023-02-13T03:44:10.727Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/talks.html</loc>
+    <lastmod>2023-02-13T03:44:12.595Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/posts/2019-02-16_building-r-docker-images-with-secrets/index.html</loc>
+    <lastmod>2023-02-13T03:44:13.595Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/posts/2021-11-24_using-giscus/index.html</loc>
+    <lastmod>2023-02-13T03:44:14.779Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/posts/2022-10-07_canaper/index.html</loc>
+    <lastmod>2023-02-13T03:44:15.867Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/posts/2021-06-02_color-scheme-anc-states/index.html</loc>
+    <lastmod>2023-02-13T03:44:16.875Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/joelnitta/joelnitta-home/posts/2021-11-16_r-bioinfo-flow/index.html</loc>
+    <lastmod>2023-02-13T03:44:18.187Z</lastmod>
   </url>
 </urlset>
