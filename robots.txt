@@ -1,1 +1,1 @@
-Sitemap: https://github.com/joelnitta/joelnitta-home/sitemap.xml
+Sitemap: https://joelnitta.github.io/joelnitta-home/sitemap.xml

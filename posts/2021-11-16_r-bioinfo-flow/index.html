@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.302">
+<meta name="generator" content="quarto-1.4.124">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -85,6 +85,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -94,15 +99,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-<script src="../../site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="../../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="../../site_libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
 <script src="../../site_libs/vis-9.1.0/vis-network.min.js"></script>
-<script src="../../site_libs/visNetwork-binding-2.1.0/visNetwork.js"></script>
+<script src="../../site_libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
 
 
 <link rel="stylesheet" href="../../jnitta_theme.css">
@@ -114,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Joel Nitta</span>
     </a>
@@ -154,10 +160,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Japanese</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -250,7 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-image-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/t-k-9AxFJaNySB8-unsplash.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Image by <a href="https://unsplash.com/@realaxer">T K</a> on <a href="https://unsplash.com/photos/9AxFJaNySB8">unsplash</a>.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Image by <a href="https://unsplash.com/@realaxer">T K</a> on <a href="https://unsplash.com/photos/9AxFJaNySB8">unsplash</a>.</figcaption>
 </figure>
 </div>
 <p>Bioinformatics projects tend to have a similar pattern: they all start with raw data, then pass the data through various programs until arriving at the final result. These “pipelines” can become very long and complicated, so there are many platforms that automate this process either relying on code (e.g., <a href="https://www.nextflow.io/">nextflow</a>, <a href="https://www.commonwl.org/">CWL</a>) or graphical interfaces (e.g., <a href="https://galaxyproject.org/">galaxy</a>). Python’s <a href="https://snakemake.readthedocs.io/en/stable/">snakemake</a> is also commonly used for this purpose. That got me thinking—can we do this in R?</p>
@@ -279,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-image-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/giordano-rossoni-czu8X_gfpP0-unsplash.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: Image by <a href="https://unsplash.com/@reddgio">Giordano Rossoni</a> on <a href="https://unsplash.com/photos/czu8X_gfpP0">unsplash</a>.</figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Image by <a href="https://unsplash.com/@reddgio">Giordano Rossoni</a> on <a href="https://unsplash.com/photos/czu8X_gfpP0">unsplash</a>.</figcaption>
 </figure>
 </div>
 <p>However, I then encounter a problem: what about the environment to run R, <code>targets</code>, and launch the Docker containers? That environment should be version-controlled and reproducible too. Normally my solution to create such an environment <strong>is</strong> Docker, but it’s generally a bad idea to try and run <a href="https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/">docker from within docker</a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
@@ -327,20 +333,12 @@ dependencies:
 <div class="cell-output cell-output-stdout">
 <pre><code>Collecting package metadata (repodata.json): ...working... done
 Solving environment: ...working... done
+
+Downloading and Extracting Packages
+
 Preparing transaction: ...working... done
 Verifying transaction: ...working... done
 Executing transaction: ...working... done
-
-
-==&gt; WARNING: A newer version of conda exists. &lt;==
-  current version: 4.13.0
-  latest version: 22.9.0
-
-Please update conda by running
-
-    $ conda update -n base -c defaults conda
-
-
 #
 # To activate this environment, use
 #
@@ -383,12 +381,15 @@ Type 'q()' to quit R.
 <p>The next step is to use <code>renv</code> to install and track R package versions. <code>renv</code> does this with a <a href="https://rstudio.github.io/renv/articles/lockfile.html">“lock file”</a>, which is essentially a specification of every package needed to run the code, its version, and where it comes from.</p>
 <p>This is what the entry in <a href="https://raw.githubusercontent.com/joelnitta/targets_bioinfo_example/main/renv.lock">the <code>renv.lock</code> file for this project</a> for the package <code>Matrix</code> looks like:</p>
 <pre><code>"Matrix": {
-      "Package": "Matrix",
-      "Version": "1.3-4",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "4ed05e9c9726267e4a5872e09c04587c"
-    }</code></pre>
+  "Package": "Matrix",
+  "Version": "1.5-4",
+  "Source": "Repository",
+  "Repository": "CRAN",
+  "Hash": "e779c7d9f35cc364438578f334cffee2",
+  "Requirements": [
+    "lattice"
+  ]
+}</code></pre>
 <p>Assuming <code>renv.lock</code> is present in the working directory (you should have downloaded it <a href="#first-things-first-set-up-the-project">above</a>), we can install all packages needed for this example by running the following in R within the Conda environment:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">activate</span>() <span class="co"># Turn on renv</span></span>
@@ -474,26 +475,23 @@ Type 'q()' to quit R.
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_make</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Warning messages:
-1: In eval(quote({ : ignoring recursive attempt to run renv autoloader
-2: could not load renv from project "~/repos/joelnitta-home/posts/2021-11-16_r-bioinfo-flow"; reloading previously-loaded renv 
-• start target read_1
+<pre><code>▶ start target read_1
 trying URL 'https://raw.githubusercontent.com/OpenGene/fastp/master/testdata/R1.fq'
 Content type 'text/plain; charset=utf-8' length 3041 bytes
 ==================================================
 downloaded 3041 bytes
 
-• built target read_1
-• start target read_2
+● built target read_1 [0.424 seconds]
+▶ start target read_2
 trying URL 'https://raw.githubusercontent.com/OpenGene/fastp/master/testdata/R2.fq'
 Content type 'text/plain; charset=utf-8' length 3343 bytes
 ==================================================
 downloaded 3343 bytes
 
-• built target read_2
-• start target fastp_out
-• built target fastp_out
-• end pipeline</code></pre>
+● built target read_2 [0.416 seconds]
+▶ start target fastp_out
+● built target fastp_out [3.054 seconds]
+▶ end pipeline [3.946 seconds]</code></pre>
 </div>
 </div>
 <p>You should be able to confirm that the read files were downloaded, cleaned, and a report generated in your working directory. Also, notice there is a new folder called <code>_targets</code>. This contains the metadata that <code>targets</code> uses to track each step of the pipeline (generally it should not be modified by hand; the same goes for the <code>renv</code> folder).</p>
@@ -503,47 +501,42 @@ downloaded 3343 bytes
 <div id="fig-image-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="img/john-towner-3Kv48NS4WUU-unsplash.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: Image by <a href="https://unsplash.com/@heytowner">JOHN TOWNER</a> on <a href="https://unsplash.com/photos/3Kv48NS4WUU">unsplash</a></figcaption><p></p>
+<figcaption class="figure-caption">Figure&nbsp;3: Image by <a href="https://unsplash.com/@heytowner">JOHN TOWNER</a> on <a href="https://unsplash.com/photos/3Kv48NS4WUU">unsplash</a></figcaption>
 </figure>
 </div>
 <p>The example workflow just consists of a couple of steps, but I hope you can see how they are chained together: <code>fastp_out</code> depends on <code>read_1</code> and <code>read_2</code>. We could add a third step that uses <code>fastp_out</code> for something else, and so forth.</p>
 <p>We can also see this by visualizing the pipeline:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>targets<span class="sc">::</span><span class="fu">tar_visnetwork</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Warning messages:
-1: In eval(quote({ : ignoring recursive attempt to run renv autoloader
-2: could not load renv from project "~/repos/joelnitta-home/posts/2021-11-16_r-bioinfo-flow"; reloading previously-loaded renv </code></pre>
-</div>
 <div class="cell-output-display">
-<div id="htmlwidget-db3c7166c46f04a05d00" style="width:100%;height:464px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-db3c7166c46f04a05d00">{"x":{"nodes":{"name":["fastp_out","read_1","read_2"],"type":["stem","stem","stem"],"status":["uptodate","uptodate","uptodate"],"seconds":[4.088,0.408,0.314],"bytes":[420567,3041,3343],"branches":[null,null,null],"id":["fastp_out","read_1","read_2"],"label":["fastp_out","read_1","read_2"],"level":[2,1,1],"color":["#354823","#354823","#354823"],"shape":["dot","dot","dot"]},"edges":{"from":["read_1","read_2"],"to":["fastp_out","fastp_out"],"arrows":["to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false},"manipulation":{"enabled":false},"edges":{"smooth":{"type":"cubicBezier","forceDirection":"horizontal"}},"physics":{"stabilization":false},"layout":{"hierarchical":{"enabled":true,"direction":"LR"}}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":{"text":"","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":1,"to":1},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"legend":{"width":0.2,"useGroups":false,"position":"right","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Up to date","Stem"],"color":["#354823","#899DA4"],"shape":["dot","dot"]},"nodesToDataframe":true}},"evals":[],"jsHooks":[]}</script>
+<div class="visNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-2a568adf343a7c22e72b" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-2a568adf343a7c22e72b">{"x":{"nodes":{"name":["fastp_out","read_1","read_2"],"type":["stem","stem","stem"],"status":["uptodate","uptodate","uptodate"],"seconds":[3.054,0.424,0.416],"bytes":[420567,3041,3343],"branches":[null,null,null],"label":["fastp_out","read_1","read_2"],"color":["#354823","#354823","#354823"],"id":["fastp_out","read_1","read_2"],"level":[2,1,1],"shape":["dot","dot","dot"]},"edges":{"from":["read_1","read_2"],"to":["fastp_out","fastp_out"],"arrows":["to","to"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot","physics":false},"manipulation":{"enabled":false},"edges":{"smooth":{"type":"cubicBezier","forceDirection":"horizontal"}},"physics":{"stabilization":false},"interaction":{"zoomSpeed":1},"layout":{"hierarchical":{"enabled":true,"direction":"LR"}}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":{"text":"","style":"font-family:Georgia, Times New Roman, Times, serif;font-weight:bold;font-size:20px;text-align:center;"},"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":1,"to":1},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":true,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"legend":{"width":0.2,"useGroups":false,"position":"right","ncol":1,"stepX":100,"stepY":100,"zoom":true,"nodes":{"label":["Up to date","Stem"],"color":["#354823","#899DA4"],"shape":["dot","dot"]},"nodesToDataframe":true},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>To keep things simple for this post, I have written the workflow as a single R script, but that’s not really the ideal way to do it. You can see that the syntax is rather verbose, and such a script would rapidly become very long. The best practice for <code>targets</code> workflows is to write the targets plan and the functions that build each target separately, as <code>_targets.R</code> and <code>functions.R</code>, respectively.</p>
 <p>By splitting the plan from the functions this way, our <code>_targets.R</code> file becomes much shorter and more readable:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(targets)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tarchetypes)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(babelwhale)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Set babelwhale backend for running containers</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set_default_config</span>(<span class="fu">create_docker_config</span>())</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load functions</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/functions.R"</span>)</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_plan</span>(</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Download example fastq files</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tar_file</span>(read_1, <span class="fu">download_read</span>(<span class="st">"R1.fq"</span>)),</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tar_file</span>(read_2, <span class="fu">download_read</span>(<span class="st">"R2.fq"</span>)),</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Clean the fastq files with fastp</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tar_file</span>(</span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>        fastp_out, </span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">fastp</span>(read_1, read_2, <span class="st">"R1_trim.fq"</span>, <span class="st">"R2_trim.fq"</span>, <span class="st">"trim_report.html"</span></span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(targets)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tarchetypes)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(babelwhale)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Set babelwhale backend for running containers</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set_default_config</span>(<span class="fu">create_docker_config</span>())</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load functions</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/functions.R"</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_plan</span>(</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Download example fastq files</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tar_file</span>(read_1, <span class="fu">download_read</span>(<span class="st">"R1.fq"</span>)),</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tar_file</span>(read_2, <span class="fu">download_read</span>(<span class="st">"R2.fq"</span>)),</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Clean the fastq files with fastp</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tar_file</span>(</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>        fastp_out, </span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">fastp</span>(read_1, read_2, <span class="st">"R1_trim.fq"</span>, <span class="st">"R2_trim.fq"</span>, <span class="st">"trim_report.html"</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can see how it provides a high-level overview of each step in the workflow, without getting bogged down in the details. And the best part is, you <strong>don’t have to install <code>fastp</code></strong> (or any other software used for a particular step)! Docker takes care of that for you.</p>
 <p>Furthermore, thanks to <code>targets</code>, if one part of the workflow changes and we run <code>tar_make()</code> again, only the part that changed will be run. Try it by deleting <code>R1.fq</code>, then run <code>tar_make()</code> again and see what happens.</p>
@@ -555,10 +548,8 @@ downloaded 3343 bytes
 
 
 </section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
+<aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
 <ol>
 <li id="fn1"><p><a href="https://docs.docker.com/get-started/overview/">Docker images</a> are basically completely self-contained computing environments, such that the software inside the image is exactly the same no matter where it is run. A major benefit of using a docker image is that you don’t have to install all of the various dependencies for a particular package: it all comes bundled in the image. And if the image has been tagged (versioned) correctly, you can specify the exact software version and know that the results won’t change in the future.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p><a href="https://bioconda.github.io/">Bioconda</a> creates a Docker image for each package, which is listed in <a href="https://biocontainers.pro/">Biocontainers</a> and uploaded to <a href="https://quay.io/organization/biocontainers">Quay.io</a>, so Bioconda and Biocontainers are largely overlapping. I find the Bioconda interface easier to use for finding images. You can also just try googling the name of the software you want to use plus “docker”. If there is no available image, <a href="https://carpentries-incubator.github.io/docker-introduction/05-creating-container-images/index.html">you can build one yourself</a>, but that’s outside the scope of this post.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
@@ -569,7 +560,9 @@ downloaded 3343 bytes
 <li id="fn7"><p>I typically use Docker, but Singularity may be a good option if you want to run your workflow on a machine where you don’t have root privileges (such as on a cluster). Docker requires root privileges to install, but Singularity doesn’t (for that matter neither does Conda). I have not tested any of this with Singularity.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn8"><p>I won’t go into the details of the <code>targets</code> syntax here, but I highly recommend <a href="https://books.ropensci.org/targets/files.html">this chapter in the <code>targets</code> manual</a> for working with external files, which are very common in bioinformatics workflows.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{nitta2021,
+</aside>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{nitta2021,
   author = {Nitta, Joel},
   title = {Managing Bioinformatics Pipelines with {R}},
   date = {2021-11-16},
@@ -621,6 +614,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -689,13 +709,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -774,10 +796,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -787,8 +808,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -801,6 +831,61 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      try { hash = new URL(url).hash; } catch {}
+      const id = hash.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note !== null) {
+        try {
+          const html = processXRef(id, note);
+          instance.setContent(html);
+        } finally {
+          instance.enable();
+          instance.show();
+        }
+      } else {
+        // See if we can fetch this
+        fetch(url.split('#')[0])
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.getElementById(id);
+          console.log(htmlDoc.body.innerHTML);
+          if (note !== null) {
+            const html = processXRef(id, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -844,6 +929,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -930,6 +1016,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <script src="https://giscus.app/client.js" data-repo="joelnitta/joelnitta-home" data-repo-id="R_kgDOGZGr3w" data-category="Comments" data-category-id="DIC_kwDOGZGr384B_-52" data-mapping="pathname" data-reactions-enabled="0" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" async="">
 </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="light">
 </div> <!-- /content -->
 
 
